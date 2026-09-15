@@ -1,0 +1,28 @@
+#include <iostream>
+#include <vector>
+#include <numeric>
+
+int main() {
+    std::vector<std::vector<int>> matrix = {
+        {1, 2, 3},
+        {4, 5, 6},
+        {7, 8, 9}
+    };
+
+    std::vector<int> row_sums;
+    row_sums.reserve(matrix.size());
+
+    for (const auto& row : matrix) {
+        int current_sum = 0;
+        for (int val : row) {
+            current_sum += val;
+        }
+        row_sums.push_back(current_sum);
+    }
+
+    // Print result
+    for (int sum : row_sums) {
+        std::cout << sum << " ";
+    }
+    return 0;
+}
