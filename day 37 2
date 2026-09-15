@@ -1,0 +1,32 @@
+#include <stdio.h>
+
+#define ROWS 2
+#define COLS 3
+
+void transposeRectangular(int src[ROWS][COLS], int dest[COLS][ROWS]) {
+    for (int i = 0; i < ROWS; i++) {
+        for (int j = 0; j < COLS; j++) {
+            dest[j][i] = src[i][j];
+        }
+    }
+}
+
+int main() {
+    int src[ROWS][COLS] = {
+        {1, 2, 3},
+        {4, 5, 6}
+    };
+    int dest[COLS][ROWS];
+
+    transposeRectangular(src, dest);
+
+    printf("Transposed Matrix (%dx%d):\n", COLS, ROWS);
+    for (int i = 0; i < COLS; i++) {
+        for (int j = 0; j < ROWS; j++) {
+            printf("%d ", dest[i][j]);
+        }
+        printf("\n");
+    }
+
+    return 0;
+}
