@@ -1,0 +1,52 @@
+#include <stdio.h>
+
+int main()
+{
+    int a[10][10];
+    int rows, cols;
+
+    printf("Enter number of rows and columns: ");
+    scanf("%d %d", &rows, &cols);
+
+    printf("Enter matrix elements:\n");
+
+    for (int i = 0; i < rows; i++)
+    {
+        for (int j = 0; j < cols; j++)
+        {
+            scanf("%d", &a[i][j]);
+        }
+    }
+
+    printf("Diagonal Traversal:\n");
+
+    // Diagonals starting from first column
+    for (int i = 0; i < rows; i++)
+    {
+        int r = i;
+        int c = 0;
+
+        while (r >= 0 && c < cols)
+        {
+            printf("%d ", a[r][c]);
+            r--;
+            c++;
+        }
+    }
+
+    // Diagonals starting from last row
+    for (int j = 1; j < cols; j++)
+    {
+        int r = rows - 1;
+        int c = j;
+
+        while (r >= 0 && c < cols)
+        {
+            printf("%d ", a[r][c]);
+            r--;
+            c++;
+        }
+    }
+
+    return 0;
+}
